@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="assets/logo.png" type="image/png">
+  <title>Food Fusion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https:stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-xl fixed-top bg">
+    <img class="IMAGE" src="assets/ff_prtnr_select_mbl_ff.png" width="100px">
+    <button class="navbar-toggler me-3 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#btn">
+      <i class='bx bx-menu bx-md'></i>
+    </button>
+    <div class="collapse navbar-collapse ul-bg" id="btn">
+      <ul class="navbar-nav ms-auto text-center">
+        <li class="nav-item"><a href="#" class="nav-link mx-3 text-white fs-5"><i class="bi bi-facebook"
+              style="color: grey; font-size: 30px;"></i></a></li>
+        <li class="nav-item"><a href="#" class="nav-link mx-3 text-white fs-5"><i class="bi bi-twitter"
+              style="color: grey; font-size: 30px;"></i></a></li>
+        <li class="nav-item"><a href="#" class="nav-link mx-3 text-white fs-5"><i class="bi bi-youtube"
+              style="color: grey; font-size: 30px;"></i></a></li>
+        <li class="nav-item"><a href="#" class="nav-link mx-3 text-white fs-5"><i class="bi bi-instagram"
+              style="color: grey; font-size: 30px;"></i></a></li>
+        <li class="nav-item"><a href="#" class="nav-link mx-3 text-white fs-5">Login</a></li>
+        <li class="nav-item"><a href="#" class="nav-link mx-3 text-white fs-5">Register</a></li>
+      </ul>
+    </div>
+  </nav>
+  <!-- Alert Box -->
+  <div class="alert-box" id="alertBox">
+    <img
+      src="https://play-lh.googleusercontent.com/-8574QZbXLa9J287muaVeolPJW0cn3ur3ZdWJIdhNOogkIVneb7KkGoqffGCvMamOEd1"
+      alt="Alert Image">
+    <span>We'd like to show you notifications.</span>
+    <button class="cancel-btn" id="cancelBtn">Cancel</button>
+    <button class="allow-btn" id="allowBtn">Allow</button>
+  </div>
+  <!-- Side nav with logo and open button -->
+  <div class="logo-container">
+    <img class="logo" src="assets/logo.png" alt="Logo">
+    <button class="open-btn" onclick="openNav()">☰</button>
+  </div>
+  <!-- Side Navbar (hidden initially) -->
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <h4>Recipe Menu</h4>
+    <a href="">Ramzan</a>
+    <a href="">Fried Items</a>
+    <a href="">Biryani & Pulao</a>
+    <a href="">Desserts</a>
+    <a href="">Pizzas</a>
+    <a href="">Drinks</a>
+  </div>
+  <!-- Home page content -->
+  <div class="content-section">
+    <div class="content-section-content">
+      <h3>Food Fusion</h3>
+      <h1>Delicious recipes to explore!</h1>
+      <!-- Search Bar Container -->
+      <div class="search-bar-container">
+        <input type="text" class="search-bar" placeholder="Aaj kiya pakana hay?">
+        <i id="search-icon" class="bi bi-search"></i>
+      </div>
+    </div>
+  </div>
+  <!-- OUR RECIPES -->
+  <div class="container3">
+    <div class="com">
+      <p class="heading"><span class="black">Our</span> <span class="yellow">Recipes</span></p>
+    </div>
+    <nav class="breadcrumb">
+      <a id="crumb" class="breadcrumb-item" href="#">Most Recent</a>
+      <span>/</span>
+      <a class="breadcrumb-item" href="#">Most Popular</a>
+      <span>/</span>
+      <a class="breadcrumb-item" href="#">Top Rated</a>
+      <span>/</span>
+      <a class="breadcrumb-item" href="#">Editor's Choice</a>
+    </nav>
+  </div>
+  <!-- card -->
+  <div class="container mt-4">
+    <div id="card-container"
+      class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-4 g-4 justify-content-center">
+      <div class="col-12 col-md-6 col-lg-5 col-xl-3">
+        <div class="card h-100">
+          <a href="https://www.youtube.com/watch?v=yUnWj95vyM4"><img src="assets/siracha crispy chicken.jpg" class="card-img-top img-custom-height" alt="..."></a>
+          <div class="card-body">
+            <h5 class="card-title">Honey Sriracha Crispy Chicken</h5>
+            <button type="button" class="heart-button" onclick="toggleLike(event)">
+              <i class="bi bi-heart-fill heart-icon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-5 col-xl-3">
+        <div class="card h-100">
+          <a href="https://www.youtube.com/watch?v=WcWuJSpkkNk"><img src="assets/cheese cake.webp" class="card-img-top img-custom-height" alt="..."></a>
+          <div class="card-body">
+            <h5 class="card-title">Pistachio CheeseCake Cups</h5>
+            <button type="button" class="heart-button" onclick="toggleLike(event)">
+              <i class="bi bi-heart-fill heart-icon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-5 col-xl-3">
+        <div class="card h-100">
+          <a href="https://www.youtube.com/watch?v=VDi5zS9vArE"><img src="assets/jam hearts.webp" class="card-img-top img-custom-height" alt="..."></a>
+          <div class="card-body">
+            <h5 class="card-title">Vanilla Jam Hearts</h5>
+            <button type="button" class="heart-button" onclick="toggleLike(event)">
+              <i class="bi bi-heart-fill heart-icon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-5 col-xl-3">
+        <div class="card h-100">
+          <a href="https://www.youtube.com/watch?v=VnEKEsf1_vw"><img src="assets/shakar paray.webp" class="card-img-top img-custom-height" alt="..."></a>
+          <div class="card-body">
+            <h5 class="card-title">Khasta Shakar Paray</h5>
+            <button type="button" class="heart-button" onclick="toggleLike(event)"></button>
+            <i class="bi bi-heart-fill heart-icon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-5 col-xl-3">
+        <div class="card h-100">
+          <a href="https://www.youtube.com/watch?v=KZL69wc_kfE"><img src="assets/ras gullay.webp" class="card-img-top img-custom-height" alt="..."></a>
+          <div class="card-body">
+            <h5 class="card-title">Mini Rasgullay</h5>
+            <button type="button" class="heart-button" onclick="toggleLike(event)">
+              <i class="bi bi-heart-fill heart-icon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-5 col-xl-3">
+        <div class="card h-100">
+          <a href="https://www.youtube.com/watch?v=19rKbXGARBw"><img src="assets/qeema paratha.jpg" class="card-img-top img-custom-height" alt="..."></a>
+          <div class="card-body">
+            <h5 class="card-title">Blooming Qeema Paratha</h5>
+            <button type="button" class="heart-button" onclick="toggleLike(event)">
+              <i class="bi bi-heart-fill heart-icon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-5 col-xl-3">
+        <div class="card h-100">
+          <a href="https://www.youtube.com/watch?v=NfQhKwibLq8"><img src="assets/coffe toffee.webp" class="card-img-top img-custom-height" alt="..."></a>
+          <div class="card-body">
+            <h5 class="card-title">Coffee Toffee</h5>
+            <button type="button" class="heart-button" onclick="toggleLike(event)">
+              <i class="bi bi-heart-fill heart-icon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-5 col-xl-3">
+        <div class="card h-100">
+          <a href="https://www.youtube.com/watch?v=33o-wYEfmiw"><img src="assets/chicken fajita.jpg" class="card-img-top img-custom-height" alt="..."></a>
+          <div class="card-body">
+            <h5 class="card-title">Resturant Style Chicken Fajita Rice</h5>
+            <button type="button" class="heart-button" onclick="toggleLike(event)">
+              <i class="bi bi-heart-fill heart-icon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- hidden -->
+    <div class="text-center">
+      <button id="show-more-btn" class="center-button" onclick="showMoreCards()">Load More</button>
+    </div>
+    <div id="extra-cards"
+      class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-4 g-4 justify-content-center mt-4">
+      <div class="col-12 col-md-6 col-lg-5 col-xl-3">
+        <div class="card h-100">
+          <a href="https://www.youtube.com/watch?v=C61LgX2CKUQ"><img src="assets/Aalo.jpg" class="card-img-top img-custom-height" alt="..."></a>
+          <div class="card-body">
+            <h5 class="card-title">Lehsuni Aalo</h5>
+            <button type="button" class="heart-button" onclick="toggleLike(event)">
+              <i class="bi bi-heart-fill heart-icon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-5 col-xl-3">
+        <div class="card h-100">
+          <a href="https://www.youtube.com/watch?v=s0ikb8XuT7U"><img src="assets/cookie.jpg" class="card-img-top img-custom-height" alt="..."></a>
+          <div class="card-body">
+            <h5 class="card-title">Cookie Dough Croissants</h5>
+            <button type="button" class="heart-button" onclick="toggleLike(event)">
+              <i class="bi bi-heart-fill heart-icon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-5 col-xl-3">
+        <div class="card h-100">
+          <a href="https://www.youtube.com/watch?v=X6pZ6hIw81A"><img src="assets/butter pasta.webp" class="card-img-top img-custom-height" alt="..."></a>
+          <div class="card-body">
+            <h5 class="card-title">Garlic butter Cheese Pasta</h5>
+            <button type="button" class="heart-button" onclick="toggleLike(event)">
+              <i class="bi bi-heart-fill heart-icon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-5 col-xl-3">
+        <div class="card h-100">
+          <a href="https://www.youtube.com/watch?v=T1vDj3QpUaE"><img src="assets/fettuccine.jpg" class="card-img-top img-custom-height" alt="..."></a>
+          <div class="card-body">
+            <h5 class="card-title">Spicy Fettuccine</h5>
+            <button type="button" class="heart-button" onclick="toggleLike(event)">
+              <i class="bi bi-heart-fill heart-icon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-5 col-xl-3">
+        <div class="card h-100">
+          <a href="https://www.youtube.com/watch?v=4_glmHBE8hk"><img src="assets/halwa.webp" class="card-img-top img-custom-height" alt="..."></a>
+          <div class="card-body">
+            <h5 class="card-title">Peshawari Halwa</h5>
+            <button type="button" class="heart-button" onclick="toggleLike(event)">
+              <i class="bi bi-heart-fill heart-icon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-5 col-xl-3">
+        <div class="card h-100">
+          <a href="https://www.youtube.com/watch?v=Pac6JW2xskQ"><img src="assets/pulao.jpg" class="card-img-top img-custom-height" alt="..."></a>
+          <div class="card-body">
+            <h5 class="card-title">Mutton Potli Pulao</h5>
+            <button type="button" class="heart-button" onclick="toggleLike(event)">
+              <i class="bi bi-heart-fill heart-icon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-5 col-xl-3">
+        <div class="card h-100">
+          <a href="https://www.youtube.com/watch?v=ao5vIFKxoho"><img src="assets/stuffed siracha.jpg" class="card-img-top img-custom-height" alt="..."></a>
+          <div class="card-body">
+            <h5 class="card-title">Stuffed Sriracha Chicken Omelette</h5>
+            <button type="button" class="heart-button" onclick="toggleLike(event)">
+              <i class="bi bi-heart-fill heart-icon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-5 col-xl-3">
+        <div class="card h-100">
+          <a href="https://www.youtube.com/watch?v=PRFruiNNVLw"><img src="assets/mqallai.jpg" class="card-img-top img-custom-height" alt="..."></a>
+          <div class="card-body">
+            <h5 class="card-title">Omani Mqallai</h5>
+            <button type="button" class="heart-button" onclick="toggleLike(event)">
+              <i class="bi bi-heart-fill heart-icon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- trending -->
+  <div class="container3">
+    <div class="com">
+      <p class="heading"><span class="black">Trending On</span> <span class="yellow">Food Fusion</span></p>
+    </div>
+  </div>
+<!-- card -->
+  <div class="container mt-4">
+    <div id="card-container"
+      class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-4 g-4 justify-content-center">
+      <div class="col-12 col-md-6 col-lg-5 col-xl-3">
+        <div class="card h-100">
+          <a href="https://www.youtube.com/watch?v=cNgpO-xI88M"><img src="assets/protein powder.webp" class="card-img-top img-custom-height" alt="..."></a>
+          <div class="card-body">
+            <h5 class="card-title">Instant Chocolate Protein Powder Mix</h5>
+            <button type="button" class="heart-button" onclick="toggleLike(event)">
+              <i class="bi bi-heart-fill heart-icon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-5 col-xl-3">
+        <div class="card h-100">
+          <a href="https://www.youtube.com/watch?v=OTF60Zrg2T0"><img src="assets/prawns.webp" class="card-img-top img-custom-height" alt="..."></a>
+          <div class="card-body">
+            <h5 class="card-title">Firecracker Prawns</h5>
+            <button type="button" class="heart-button" onclick="toggleLike(event)">
+              <i class="bi bi-heart-fill heart-icon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-5 col-xl-3">
+        <div class="card h-100">
+          <a href="https://www.youtube.com/watch?v=gXl9jOHXwuA"><img src="assets/yogurt chicken.jpg" class="card-img-top img-custom-height" alt="..."></a>
+          <div class="card-body">
+            <h5 class="card-title">Smokey Dahi/Yogurt Chicken kabab</h5>
+            <button type="button" class="heart-button" onclick="toggleLike(event)">
+              <i class="bi bi-heart-fill heart-icon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-5 col-xl-3">
+        <div class="card h-100">
+          <a href="https://www.youtube.com/watch?v=1j2joal9A3c"><img src="assets/chinese bbq chicken.jpg" class="card-img-top img-custom-height" alt="..."></a>
+          <div class="card-body">
+            <h5 class="card-title">Chinese BBQ Biryani</h5>
+            <button type="button" class="heart-button" onclick="toggleLike(event)"></button>
+            <i class="bi bi-heart-fill heart-icon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-5 col-xl-3">
+        <div class="card h-100">
+          <a href="https://www.youtube.com/watch?v=unyfxiE8Db8"><img src="assets/monster shake.jpg" class="card-img-top img-custom-height" alt="..."></a>
+          <div class="card-body">
+            <h5 class="card-title">Loaded Monster Shake 2 ways</h5>
+            <button type="button" class="heart-button" onclick="toggleLike(event)">
+              <i class="bi bi-heart-fill heart-icon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-5 col-xl-3">
+        <div class="card h-100">
+          <a href="https://www.youtube.com/watch?v=XMRTAIW05II"><img src="assets/manga tart.webp" class="card-img-top img-custom-height" alt="..."></a>
+          <div class="card-body">
+            <h5 class="card-title">Mango Tart</h5>
+            <button type="button" class="heart-button" onclick="toggleLike(event)">
+              <i class="bi bi-heart-fill heart-icon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-5 col-xl-3">
+        <div class="card h-100">
+          <a href="https://www.youtube.com/watch?v=1epkIJdJCds"><img src="assets/Chicken-korma-pasta.jpg" class="card-img-top img-custom-height" alt="..."></a>
+          <div class="card-body">
+            <h5 class="card-title">Chicken Korma Pasta</h5>
+            <button type="button" class="heart-button" onclick="toggleLike(event)">
+              <i class="bi bi-heart-fill heart-icon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-5 col-xl-3">
+        <div class="card h-100">
+          <a href="https://www.youtube.com/watch?v=NvTcKXKNvsI"><img src="assets/gur papri.webp" class="card-img-top img-custom-height" alt="..."></a>
+          <div class="card-body">
+            <h5 class="card-title">Gur Papri</h5>
+            <button type="button" class="heart-button" onclick="toggleLike(event)">
+              <i class="bi bi-heart-fill heart-icon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- u may also like -->
+    <div class="container3">
+      <div class="com">
+        <p class="heading"><span class="black">You May Also</span> <span class="yellow">Like</span></p>
+      </div>
+    </div>
+<!-- card -->
+    <div class="container mt-4">
+      <div id="card-container"
+        class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-4 g-4 justify-content-center">
+        <div class="col-12 col-md-6 col-lg-5 col-xl-3">
+          <div class="card h-100">
+            <a href="https://www.youtube.com/watch?v=gveENCkNRV0"><img src="assets/pie.jpg" class="card-img-top img-custom-height" alt="..."></a>
+            <div class="card-body">
+              <h5 class="card-title">Shepherd's Pie</h5>
+              <button type="button" class="heart-button" onclick="toggleLike(event)">
+                <i class="bi bi-heart-fill heart-icon"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-5 col-xl-3">
+          <div class="card h-100">
+            <a href="https://www.youtube.com/watch?v=A4is7pdRrX8"><img src="assets/Parmigiana-di-melanzane.jpg" class="card-img-top img-custom-height"
+                alt="..."></a>
+            <div class="card-body">
+              <h5 class="card-title">Parmigiana di Melanzane</h5>
+              <button type="button" class="heart-button" onclick="toggleLike(event)">
+                <i class="bi bi-heart-fill heart-icon"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-5 col-xl-3">
+          <div class="card h-100">
+            <a href="https://www.youtube.com/watch?v=CPqvzai65xc"><img src="assets/microwave meals.webp" class="card-img-top img-custom-height" alt="..."></a>
+            <div class="card-body">
+              <h5 class="card-title">Microwave Meals 3-Quick Ways</h5>
+              <button type="button" class="heart-button" onclick="toggleLike(event)">
+                <i class="bi bi-heart-fill heart-icon"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-5 col-xl-3">
+          <div class="card h-100">
+            <a href="https://www.youtube.com/watch?v=GncJZsV2Qsk"><img src="assets/pao chicken.webp" class="card-img-top img-custom-height" alt="..."></a>
+            <div class="card-body">
+              <h5 class="card-title">Kung Pao Chicken</h5>
+              <button type="button" class="heart-button" onclick="toggleLike(event)"></button>
+              <i class="bi bi-heart-fill heart-icon"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-5 col-xl-3">
+          <div class="card h-100">
+            <a href="https://www.youtube.com/watch?v=TeThEIQvIwo"><img src="assets/Lebanese-Chicken-Fatteh.webp" class="card-img-top img-custom-height"
+                alt="..."></a>
+            <div class="card-body">
+              <h5 class="card-title">Lebanese Chicken Fatteh</h5>
+              <button type="button" class="heart-button" onclick="toggleLike(event)">
+                <i class="bi bi-heart-fill heart-icon"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-5 col-xl-3">
+          <div class="card h-100">
+            <a href="https://www.youtube.com/watch?v=N3HN2IPCDlQ"><img src="assets/qeema kebab.webp" class="card-img-top img-custom-height" alt="..."></a>
+            <div class="card-body">
+              <h5 class="card-title">Kachay Qeema ka Kebab With Naan & Tomato Chutney</h5>
+              <button type="button" class="heart-button" onclick="toggleLike(event)">
+                <i class="bi bi-heart-fill heart-icon"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-5 col-xl-3">
+          <div class="card h-100">
+            <a href="https://www.youtube.com/watch?v=KPU2ZsuhhV0"><img src="assets/tomato pasta.jpg" class="card-img-top img-custom-height" alt="..."></a>
+            <div class="card-body">
+              <h5 class="card-title">Easy Cheesy Tomato Pasta</h5>
+              <button type="button" class="heart-button" onclick="toggleLike(event)">
+                <i class="bi bi-heart-fill heart-icon"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-5 col-xl-3">
+          <div class="card h-100">
+            <a href="https://www.youtube.com/watch?v=P0JQM9tigj4"><img src="assets/chicken casserole.jpg" class="card-img-top img-custom-height" alt="..."></a>
+            <div class="card-body">
+              <h5 class="card-title">Tuscan Chicken casserole with Cheese</h5>
+              <button type="button" class="heart-button" onclick="toggleLike(event)">
+                <i class="bi bi-heart-fill heart-icon"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--our partners -->
+      <div class="container3">
+        <div class="com">
+          <p class="heading"><span class="black">Our Happy</span> <span class="yellow">Cooking Partners</span></p>
+        </div>
+      </div>
+      <div class="slider-container">
+        <button class="prev" onclick="slide(-1)">&#10094;</button>
+        <div class="card-slider" id="slider">
+          <div class="cards">
+            <img src="assets/Surf-Excel-Logo-1.webp">
+          </div>
+          <div class="cards">
+            <img src="assets/Dawn-Foods-1.webp">
+          </div>
+          <div class="cards">
+            <img src="assets/Meat-One-Meat-Experts-Logo-1.webp">
+          </div>
+          <div class="cards">
+            <img src="assets/New-Knorr-Logo-Hi-Res-2-1.webp">
+          </div>
+          <div class="cards">
+            <img src="assets/sufi-cooking-oil-1.webp">
+          </div>
+          <div class="cards">
+            <img src="assets/Kenwood-Logo-1.webp">
+          </div>
+          <div class="cards">
+            <img src="assets/Youngs-Honey-Logo-1.webp">
+          </div>
+          <div class="cards">
+            <img src="assets/Vim-Logo.webp">
+          </div>
+          <div class="cards">
+            <img src="assets/Olpers-cream-logo-1.webp">
+          </div>
+          <div class="cards">
+            <img src="assets/Gaviscon-1.webp">
+          </div>
+          <div class="cards">
+            <img src="assets/Rooh-Afza-Logo-1.webp">
+          </div>
+          <div class="cards">
+            <img src="assets/SHAN-logo-final-1.webp">
+          </div>
+          <div class="cards">
+            <img src="assets/Lipton-logo.webp">
+          </div>
+          <div class="cards">
+            <img src="assets/Simply-Sufi-1.webp">
+          </div>
+          <div class="cards">
+            <img src="assets/Tux-Tissues.webp">
+          </div>
+          <div class="cards">
+            <img src="assets/Walls-Logo-1.webp">
+          </div>
+        </div>
+        <button class="next" onclick="slide(1)">&#10095;</button>
+      </div>
+    </div>
+  </div>
+<!-- About us -->
+  <div class="container10">
+    <div class="full-width-background">
+      <div class="logo-and-madel">
+        <img class="logo-image" src="assets/logo.png" alt="Logo">
+        <img class="madel" src="assets/madel.webp" alt="Madel">
+      </div>
+      <div class="content-and-social">
+        <div class="content">
+          <p class="paragraph5">
+            Food Fusion is all about redefining ‘Cooking’ for you! It’s the solution to that never ending problem of
+            preparing high quality delicious food and curtailing the eating out habits of your loved ones! With
+            modernized and yet simple cooking methods, you are surely in for a flavorsome treat with our recipes that
+            will surely make you the next talk of the town!
+          </p>
+          <p class="paragraph5">
+            Being Pakistan’s first digital food video portal, we understand your difficulty of being unable to execute
+            that perfect dish just by going through those long recipes & ending up with something not as good as the one
+            you see on paper. Hence, we make sure to get this covered by bringing in videos that will help you prepare
+            the same delicious food as you see in our videos.
+          </p>
+        </div>
+        <div class="social-section">
+          <h5>GET SOCIAL WITH US</h5>
+          <div class="social-logos">
+            <a href="#" class="icon"><i class="bi bi-facebook" style="color: grey; font-size: 30px;"></i></a>
+            <a href="#" class="icon"><i class="bi bi-twitter" style="color: grey; font-size: 30px;"></i></a>
+            <a href="#" class="icon"><i class="bi bi-youtube" style="color: grey; font-size: 30px;"></i></a>
+            <a href="#" class="icon"><i class="bi bi-instagram" style="color: grey; font-size: 30px;"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; Copyright 2024 All rights of publications are reserved by <span class="change">Food Fusion</span>. Reproduction without consent is
+        not allowed.</p>
+      <h5>PRIVACY POLICY</h5>
+    </div>
+  </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="./index.js"></script>
+</body>
+
+</html>
